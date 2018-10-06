@@ -22,9 +22,13 @@
     <li>Total Specials: <%= comedian.specials.count %></li>
   </ul>
   <h2> Specials </h2>
-  <% comedian.specials.each do |special| %>
-    <img src="<%= special.thumbnail %>"><img>
-    <li>Title: <%= special.name %> </li>
-    <li>Runtime: <%= special.runtime %> </li>
-  <% end %>
+  <% if comedian.specials != nil%>
+    <% comedian.specials.each do |special| %>
+      <img src="<%= special.thumbnail %>"><img>
+      <li>Title: <%= special.name %> </li>
+      <li>Runtime: <%= special.runtime %> </li>
+    <% end %>
+  <% else %>
+    <%= 'No specials yet' %>
+  <% end %> 
 <% end %>
