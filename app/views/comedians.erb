@@ -8,7 +8,11 @@
 <h3> Average Age </h3>
   <p> <%= Comedian.average_age %> <p>
 <h3> Cities </h3>
-
+  <% Comedian.uniq_cities.each do |city| %>
+    <ul>
+       <%= city %>
+    </ul>
+  <% end %>
 
 <% @comedians.each do |comedian| %>
   <h1><%= comedian.name %></h1>

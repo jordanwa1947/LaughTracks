@@ -33,5 +33,22 @@ RSpec.describe "a visitor visits the comedians page" do
 
       expect(page).to have_content 75
     end
+
+    it 'should output uniq cities' do
+      comic = Comedian.create(name: 'Mitch Hedberg', age: 48, city: 'Helena, Montana')
+      special = comic.specials.create(name: "Louis C.K. 2017", runtime: 74,
+                                      thumbnail: "https://m.media-amazon.com/images/M/MV5BOGYwMmVlMWUtZDE2My00MzMyLTk5MTQtZDdmM2U5YWQwZjM1XkEyXkFqcGdeQXVyMjExNDAyOTU@._V1_UY268_CR4,0,182,268_AL_.jpg")
+      comic_2 = Comedian.create(name: 'Jordan Whitten', age: 52, city: 'Tampa, Florida')
+      special = comic_2.specials.create(name: "Louis C.K. 2017", runtime: 76,
+        thumbnail: "https://m.media-amazon.com/images/M/MV5BOGYwMmVlMWUtZDE2My00MzMyLTk5MTQtZDdmM2U5YWQwZjM1XkEyXkFqcGdeQXVyMjExNDAyOTU@._V1_UY268_CR4,0,182,268_AL_.jpg")
+      comic_3 = Comedian.create(name: 'Other Guy', age: 52, city: 'Tampa, Florida')
+      special = comic_3.specials.create(name: "Louis C.K. 2017", runtime: 76,
+        thumbnail: "https://m.media-amazon.com/images/M/MV5BOGYwMmVlMWUtZDE2My00MzMyLTk5MTQtZDdmM2U5YWQwZjM1XkEyXkFqcGdeQXVyMjExNDAyOTU@._V1_UY268_CR4,0,182,268_AL_.jpg")
+
+      visit '/comedians'
+      
+      expect(page).to have_content comic.city
+      expect(page).to have_content comic_2.city
+    end
   end
 end
