@@ -5,12 +5,11 @@ class LaughTracksApp < Sinatra::Base
   get '/comedians' do
     if params[:age] == nil
       @comedians = Comedian.all
+      @specials = Special.all
     else
-      @comedians = Comedian.all.find_all do |comedian|
-        comedian.age == params[:age].to_i
-      end
+      @comedians = Comedian.where(age:params[:age])
+      @specials = Special.where(comedian_id: @comedians.ids)
     end
-    @specials = Special.all
     erb :comedians
   end
 

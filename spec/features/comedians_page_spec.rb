@@ -63,20 +63,19 @@ RSpec.describe "a visitor visits the comedians page" do
       expect(page).to have_content comic_2.city
     end
 
-    it 'should output selected comedians' do
+    it 'should only output selected comedians' do
       comic = Comedian.create(name: 'Mitch Hedberg', age: 48, city: 'Helena, Montana')
       special = comic.specials.create(name: "Louis C.K. 2017", runtime: 74,
                                       thumbnail: "https://m.media-amazon.com/images/M/MV5BOGYwMmVlMWUtZDE2My00MzMyLTk5MTQtZDdmM2U5YWQwZjM1XkEyXkFqcGdeQXVyMjExNDAyOTU@._V1_UY268_CR4,0,182,268_AL_.jpg")
-      comic_2 = Comedian.create(name: 'Jordan Whitten', age: 52, city: 'Tampa, Florida')
+      comic_2 = Comedian.create(name: 'Jordan Whitten', age: 22, city: 'Tampa, Florida')
       special = comic_2.specials.create(name: "Louis C.K. 2017", runtime: 76,
         thumbnail: "https://m.media-amazon.com/images/M/MV5BOGYwMmVlMWUtZDE2My00MzMyLTk5MTQtZDdmM2U5YWQwZjM1XkEyXkFqcGdeQXVyMjExNDAyOTU@._V1_UY268_CR4,0,182,268_AL_.jpg")
 
-      visit '/comedians?age=52'
+      visit '/comedians?age=22'
 
       expect(page).to have_content comic_2.city
       expect(page).to have_content comic_2.name
       expect(page).to have_content comic_2.age
-      expect(page).to have_content comic.city
 
       expect(page).to_not have_content comic.name
       expect(page).to_not have_content comic.age
