@@ -1,3 +1,36 @@
+header {
+  text-align: center;
+  font-size: 30px;
+}
+
+li {
+  text-align: center;
+}
+
+img {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+}
+
+h2 {
+  text-align: center;
+}
+img:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}
+
+.grid-container {
+  opacity: 0.9;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+
 body {
     background-image:    url(http://www.habibasgreenville.com/wp-content/uploads/2015/05/comedy.jpg);
     background-size:     cover;
@@ -6,4 +39,15 @@ body {
     background-attachment: fixed;
   }
 
-  
+  div.b {
+      vertical-align: top;
+      margin: 25px 25px 25px 50px;
+      opacity: 0.9;
+      border-radius: 25px;
+      display: inline-block;
+      width: 300px;
+      height: 100%
+      padding: 20px;
+      border: 1px solid blue;
+      background-color: white;
+  }

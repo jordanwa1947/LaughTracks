@@ -1,36 +1,44 @@
+<header>
+  <h1> Comedians </h1>
+</header>
 
-
-<h1> Comedians </h1>
 <h2> Statistics </h2>
-
-<h3> Average Tv Special Runtime </h3>
-  <p> <%= @specials.average_runtime %> <p>
-<h3> Total Tv Specials </h3>
-  <p> <%= @specials.count %> <p>
-<h3> Average Age </h3>
-  <p> <%= @comedians.average_age %> <p>
-<h3> Cities </h3>
-  <% @comedians.uniq_cities.each do |city| %>
-    <ul>
-       <%= city %>
-    </ul>
-  <% end %>
-
-<% @comedians.each do |comedian| %>
-  <h1><%= comedian.name %></h1>
-  <ul>
-    <li>City: <%= comedian.city %></li>
-    <li>Age: <%= comedian.age %></li>
-    <li>Total Specials: <%= comedian.specials.count %></li>
-  </ul>
-  <h2> Specials </h2>
-  <% if comedian.specials != nil%>
-    <% comedian.specials.each do |special| %>
-      <img src="<%= special.thumbnail %>"><img>
-      <li>Title: <%= special.name %> </li>
-      <li>Runtime: <%= special.runtime %> </li>
+  <div class='b'>
+    <h3> Average Tv Special Runtime </h3>
+    <p> <%= @specials.average_runtime %> <p>
+  </div>
+  <div class='b'>
+    <h3> Total Tv Specials </h3>
+    <p> <%= @specials.count %> <p>
+  </div>
+  <div class='b'>
+    <h3> Average Age </h3>
+    <p> <%= @comedians.average_age %> <p>
+  </div>
+  <div class='b'>
+    <h3> Cities </h3>
+      <% @comedians.uniq_cities.each do |city| %>
+       <p> <%= city %> </p>
     <% end %>
-  <% else %>
-    <%= 'No specials yet' %>
+  </div>
+
+  <% @comedians.each do |comedian| %>
+  <div class="b">
+    <h1><%= comedian.name %></h1>
+    <ul>
+      <li>City: <%= comedian.city %></li>
+      <li>Age: <%= comedian.age %></li>
+      <li>Total Specials: <%= comedian.specials.count %></li>
+    </ul>
+    <h2> Specials </h2>
+    <% if comedian.specials != nil%>
+      <% comedian.specials.each do |special| %>
+        <img src="<%= special.thumbnail %>"><img>
+        <li>Title: <%= special.name %> </li>
+        <li>Runtime: <%= special.runtime %> </li>
+      <% end %>
+    <% else %>
+      <%= 'No specials yet' %>
+    <% end %>
+  </div>
   <% end %>
-<% end %>
