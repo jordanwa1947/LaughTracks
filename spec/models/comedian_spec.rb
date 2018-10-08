@@ -39,7 +39,7 @@ RSpec.describe Comedian do
         Comedian.create(name: 'Jordan Whitten', age: 52, city: 'Tampa, Florida')
 
 
-        expect(Comedian.uniq_cities).to eq ["Helena, Montana", "Tampa, Florida"]
+        expect(Comedian.uniq_cities).to eq ["Tampa, Florida", "Helena, Montana"]
       end
     end
   end

@@ -51,3 +51,20 @@ body {
       border: 1px solid blue;
       background-color: white;
   }
+
+  .button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  input {
+
+  }
